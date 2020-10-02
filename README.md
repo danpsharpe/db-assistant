@@ -15,4 +15,8 @@ From CLI, run your commnds. You can pass files back and forth from the data dire
 - Container: `/mnt/data`
 
 ### Backup / Restore database
-- `mysqldump -P 3306 -h HOST -u USER -pPASSWORD --single-transaction --all-databases | gzip - > backup.sql.gz`
+- Backup: `mysqldump -u root -p[password] [database_name] > dump.sql`
+- Restore: `mysql -u root -p[password] [database_name] < dump.sql`
+
+## Tips
+- The [host address](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach#:~:text=To%20access%20MySQL%20running%20on,or%20bind%2Daddress%20%3D%200.0.) is `host.docker.internal` instead of `localhost`.
